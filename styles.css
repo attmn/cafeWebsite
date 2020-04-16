@@ -9,13 +9,17 @@
 }
 
 /* GLOBAL */
+html,
 body {
   background: #1e201a;
   font-size: 100%;
+  scroll-behavior: smooth;
 }
 
 .page {
-  height: 700px;
+  width: 80%;
+  padding: 10em 0 10em 0;
+  grid-column: 2/4;
 }
 
 #content {
@@ -24,7 +28,15 @@ body {
   grid-template-columns: 5% 45% 45% 5%;
 }
 
-button:hover {
+a,
+span {
+  text-decoration: none;
+  font-family: Raleway;
+  font-weight: 500;
+  text-align: center;
+}
+
+a:hover {
   cursor: pointer;
   filter: brightness(50%);
 }
@@ -38,6 +50,11 @@ p {
   color: white;
   font-family: "sansation_regular";
   font-size: 25px;
+}
+
+.pageDiv1 {
+  display: grid;
+  align-items: center;
 }
 
 .pageTitle {
@@ -58,6 +75,7 @@ p {
   grid-template-columns: repeat(7, auto);
   grid-column: 3/4;
   grid-row: 1;
+  align-items: center;
 }
 
 .menuBtn {
@@ -66,7 +84,6 @@ p {
   color: white;
   position: relative;
   width: 9em;
-  height: 3em;
   padding: 0;
   font-size: 1em;
 }
@@ -105,6 +122,7 @@ p {
 .sideRow {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .sideBtn {
@@ -120,6 +138,7 @@ p {
   right: 1em;
   width: 100px;
   text-align: right;
+  cursor: default;
 }
 
 .sideCircle {
@@ -150,17 +169,27 @@ p {
   background: white;
 }
 
+.sideMenuShown {
+  display: block;
+}
+
 /* HOME PAGE */
 #homeLeft {
+  height: 850px;
+  width: auto;
+  margin: 0 7em 0 0;
   justify-self: right;
-  align-self: center;
   grid-column: 2;
   grid-row: 1/3;
-  margin-right: 100px;
+  padding-top: 0;
+}
+
+#homeImg {
+  height: 100%;
 }
 
 #homeRight {
-  height: 1000px;
+  height: 800px;
   grid-column: 3;
   display: flex;
   align-self: center;
@@ -194,97 +223,108 @@ p {
   font-size: 18px;
 }
 
-/* COFFEE PAGE */
-#coffeePage {
-  width: 80%;
-  display: grid;
-  grid-template-rows: 50% 50%;
-  grid-row: 3;
-  grid-column: 2/4;
+/* COFFEE & FOOD PAGE */
+#coffeeDiv,
+#foodDiv {
+}
+
+#coffeeDiv {
+  grid-column: 1;
+  align-items: center;
   justify-items: right;
+  justify-content: right;
+}
+
+#foodDiv {
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+  justify-items: left;
+  justify-content: left;
+}
+
+#coffee,
+#food {
+  display: grid;
   align-items: center;
   justify-self: center;
 }
 
-#coffeeTitle {
-  grid-row: 1;
-  grid-column: 1;
+#coffee {
+  grid-row: 3;
+  justify-items: right;
+}
+
+#coffee:target {
+  padding-top: 10em;
+}
+
+#food {
+  grid-row: 4;
+  justify-items: left;
+}
+
+#coffeeTitle,
+#foodTitle {
   align-self: end;
+}
+
+#coffeeText,
+#foodText {
+  font-size: 25px;
+  align-self: baseline;
 }
 
 #coffeeText {
   text-align: right;
-  font-size: 25px;
-  align-self: baseline;
-}
-
-#coffeeImg {
-  grid-row: 1/3;
-  grid-column: 2;
-  width: 400px;
-  margin: 100px 100px 0px 75px;
-}
-
-/* FOOD PAGE */
-#foodPage {
-  width: 80%;
-  display: grid;
-  grid-template-rows: 50% 50%;
-  grid-row: 4;
-  grid-column: 2/4;
-  justify-items: left;
-  align-items: center;
-  justify-self: center;
-}
-
-#foodTitle {
-  grid-row: 1;
-  grid-column: 2;
-  align-self: end;
 }
 
 #foodText {
   text-align: left;
-  font-size: 25px;
-  align-self: baseline;
+}
+
+#coffeeImg {
+  grid-column: 2;
+  width: 400px;
+  margin-left: 5em;
 }
 
 #foodImg {
-  grid-row: 1/3;
+  grid-row: 1;
   grid-column: 1;
   width: 400px;
-  margin: 100px 75px 0px 100px;
+  margin-right: 5em;
 }
 
 /* MENU PAGE */
-#menuPage {
-  margin-top: 200px;
-  margin-bottom: 200px;
-  height: 1000px;
+#menu {
   width: 80%;
   grid-row: 5;
   grid-column: 2/4;
+  justify-self: center;
+}
+
+#menuDiv {
+  height: 1000px;
   display: grid;
   grid-template-columns: 50% 50%;
   background-color: white;
-  justify-self: center;
 }
 
 #menuTitle {
   justify-self: center;
   grid-column: 1/3;
+  align-self: start;
 }
 
 #menuText {
 }
 
 /* ABOUT PAGE */
-#aboutPage {
+#about {
   display: grid;
   grid-row: 6;
   grid-column: 2/4;
-  width: 80%;
-  margin-bottom: 200px;
   justify-self: center;
 }
 
@@ -313,11 +353,10 @@ p {
 }
 
 /* CONTACT PAGE */
-#contactPage {
+#contact {
   display: grid;
   grid-row: 7;
   grid-column: 2/4;
-  width: 80%;
   margin-bottom: 200px;
   justify-self: center;
 }
